@@ -1,0 +1,69 @@
+// App.js
+import React from 'react';
+import Header from './Header';
+import MovieList from './MovieList';
+import './App.css';
+
+function App() {
+  return (
+    <div className="app">
+      <Header />
+      <MovieList />
+    </div>
+  );
+}
+
+export default App;
+
+// Header.js
+import React from 'react';
+import './Header.css';
+
+function Header() {
+  return (
+    <header className="header">
+      {/* Netflix logo and navigation */}
+    </header>
+  );
+}
+
+export default Header;
+
+// MovieList.js
+import React, { useState, useEffect } from 'react';
+import './MovieList.css';
+import MovieCard from './MovieCard';
+
+function MovieList() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    // Fetch movies from a backend API (e.g., Node.js with Express and MongoDB)
+    // Update the 'movies' state with the fetched data
+  }, []);
+
+  return (
+    <div className="movie-list">
+      {movies.map(movie => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))}
+    </div>
+  );
+}
+
+export default MovieList;
+
+// MovieCard.js
+import React from 'react';
+import './MovieCard.css';
+
+function MovieCard({ movie }) {
+  return (
+    <div className="movie-card">
+      <img src={movie.poster} alt={movie.title} />
+      <h3>{movie.title}</h3>
+    </div>
+  );
+}
+
+export default MovieCard;
